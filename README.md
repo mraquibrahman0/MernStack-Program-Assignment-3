@@ -16,12 +16,67 @@ If the product is already in the cart, its quantity is increased.
 Users can use the + and - buttons to change the quantity.
 The Remove button deletes the product from the cart.
 Project Structure
-project-folder/
-│
-├── index.html
-├── script.js
-└── README.md
 
+fetchData()
+│
+├── fetch products from API
+│
+├── loop through products
+│
+├── create product card
+│
+├── display product card
+│
+└── Add To Cart
+      │
+      ├── check if item already exists
+      │     │
+      │     ├── YES → increase quantity
+      │     │
+      │     └── NO → add item with quantity: 1
+      │
+      └── displayCart()
+            │
+            ├── clear previous cart HTML
+            │
+            ├── loop through cart
+            │
+            ├── create cart item
+            │
+            ├── display cart item
+            │
+            ├── Increase quantity
+            │     └── quantity++
+            │          └── displayCart()
+            │
+            ├── Decrease quantity
+            │     ├── quantity > 1
+            │     │     └── quantity--
+            │     │
+            │     └── quantity === 1
+            │           └── remove item
+            │
+            ├── Remove item
+            │     └── remove from cart
+            │
+            └── calculateTotalPrice()
+                  │
+                  ├── loop through cart
+                  │
+                  ├── price × quantity
+                  │
+                  └── update Total
+
+
+calculateTotalPrice()
+│
+├── total = 0
+│
+├── loop through cart
+│
+├── total += price × quantity
+│
+└── update totalPrice element
 Cart Functionality
 
 The cart is managed using a JavaScript array:
