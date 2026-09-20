@@ -1,6 +1,6 @@
 const productContainer = document.getElementById("product-container");
-console.log(productContainer);
 const cartContainer = document.getElementById("cart-container");
+const totalPrice = document.getElementById("total-price");
 
 let cart = [];
 
@@ -71,6 +71,16 @@ async function fetchData() {
   });
 }
 
+// Calculating total price of cart items
+const calculateTotalPrice = () => {
+  let total = 0;
+
+  cart.forEach((item) => {
+    total += item.price * item.quantity;
+  });
+  totalPrice.textContent = `Total: $${total}`;
+};
+
 // Display cart items
 function displayCart() {
   cartContainer.innerHTML = "";
@@ -95,7 +105,7 @@ function displayCart() {
                     </h2>
 
                     <p class="text-sm">
-                        $${item.price}
+                        $${item.price.toFixed(2)}
                     </p>
 
                     <div class="join join-vertical lg:join-horizontal mt-2">
@@ -133,7 +143,6 @@ function displayCart() {
         `;
 
     cartContainer.appendChild(div);
-
     // Increase quantity
     const increase = div.querySelector(".increase");
 
@@ -165,6 +174,8 @@ function displayCart() {
       displayCart();
     });
   });
+
+  calculateTotalPrice();
 }
 
 fetchData();
