@@ -17,6 +17,7 @@ Users can use the + and - buttons to change the quantity.
 The Remove button deletes the product from the cart.
 Project Structure
 
+```
 fetchData()
 │
 ├── fetch products from API
@@ -77,6 +78,7 @@ calculateTotalPrice()
 ├── total += price × quantity
 │
 └── update totalPrice element
+```
 Cart Functionality
 
 The cart is managed using a JavaScript array:
